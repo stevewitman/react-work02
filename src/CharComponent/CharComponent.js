@@ -11,7 +11,7 @@ const charComponent = (props) => {
     }
 
     return (
-        <div style={style} onClick={props.click}>Char Component</div>
+        <div style={style} onClick={props.click}>{props.char}</div>
     )
 }
 
