@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import ValidationComponent from './ValidationComponent/ValidationComponent';
+
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {length: 0};
+    this.state = {inputValue: ''};
 
     this.lengthChangedHandler = this.lengthChangedHandler.bind(this);
   }
 
 
   lengthChangedHandler(event) {
-    let charCount = event.target.value.length;
-    this.setState({length: charCount})
+    let inputValue = event.target.value;
+    this.setState({inputValue: inputValue})
   }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <input type="text" onChange={this.lengthChangedHandler}/>
+          <input type="text" onChange={this.lengthChangedHandler}/><ValidationComponent input={this.state.inputValue} />
         </header>
-        <p>Characters used: {this.state.length}</p>
       </div>
     );
   }
